@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoubleTask</title>
+    <link rel="stylesheet" href="doc.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <section class="sidebar">
+        <a href="#" class="logo">
+            <i class='bx bxs-paper-plane'></i>
+            <span class="text">DoubleTask</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="dashboard.html" class="nav-link">
+                    <i class='bx bxs-home'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#" class="nav-link">
+                    <i class='bx bx-dock-right'></i>
+                    <span class="text">Notebook</span>
+                </a>
+            </li>
+            <li>
+                <a href="todo.html" class="nav-link">
+                    <i class='bx bx-calendar-alt'></i>
+                    <span class="text">Todo-List</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link">
+                    <i class='bx bx-timer'></i>
+                    <span class="text">Pomodoro Timer</span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="side-menu">
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section class="content">
+        <nav>
+            <i class='bx bx-menu' ></i>
+            <a href="#" class="nav-link">Planner</a>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="search.." />
+                    <button class="search-btn">
+                        <i class='bx bx-search' ></i>
+                    </button>
+                </div>
+            </form>
+
+            <input type="checkbox" hidden id="switch-mode" />
+            <label for="switch-mode" class="switch-mode"></label>
+            <!--Icon notifikasi-->
+            <a href="#" class="notification">
+                <i class='bx bx-bell'></i>
+                <!--Notifikasi yang diteima user-->
+                <span class="num">10</span>
+            </a>
+
+            <!--Profile-->
+            <a href="#" class="profile">
+                <img src="img/profile.jpg" alt="">
+            </a>
+        </nav>
+
+            <div class="popup-box">
+               <div class="popup">
+                <div class="main">
+                    <header>
+                        <p>Add a new Note</p>
+                        <i class='bx bx-x'></i>
+                    </header>
+                    <form action="#">
+                       <div class="row title">
+                        <label>Title</label>
+                        <input type="text">
+                       </div> 
+                       <div class="row description">
+                        <label>Description</label>
+                        <textarea></textarea>
+                       </div>
+                       <button>Add Note</button>
+                    </form>
+                </div>
+               </div> 
+            </div>
+            <div class="wrapper">
+               <li class="add-box">
+                <div class="icon"><i class='bx bx-plus' ></i></div>
+                <p>Add New Notes</p>
+               </li> 
+            </div>
+
+    </section>
+
+ 
+    <script src="document.js"></script>
+</body>
+</html>

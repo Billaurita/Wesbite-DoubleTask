@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family:'Poppins', sans-serif;;
+}
+
+:root{
+    --poppins: 'Poppins', sans-serif;
+
+    --main-color: #2288ff;
+    --second-color: #192f6a;
+    --text-color: #314862;
+    --bg-color: #f9f9f9;
+    --grey: #eee;
+    --dark-grey: #aaaaaa;
+    --dark: #342e37;
+    --red: #FF2929;
+    --light-orange: #FFE893;
+    --orange: #F26B0F;
+    --light-blue: #D4EBF8;
+    --blue: #80C4E9;
+    --light-yellow: #FCF596;
+    --yellow: #FFE31A;
+
+
+
+    --box-shadow: 2px 2px 18px rgb(14 52 54 / 15%);
+}
+
+html{
+    overflow-x: hidden;
+}
+
+body{
+    background: var(--grey);
+    overflow-x: hidden;
+}
+body.dark{
+    --light: #0c0c1e;
+    --grey: #060714;
+    --dark: #fbfbfb;
+}
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--bg-color);
+    height: 100%;
+    width: 270px;
+    z-index: 2000;
+    font-family: var(--poppins);
+    transition: 0.3s ease;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+.sidebar.hide{
+    width: 60px;
+}
+.sidebar::-webkit-scrollbar{
+    display: none;
+}
+.sidebar .logo{
+    font-size: 23px;
+    font-weight: 700;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    color: var(--main-color);
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: var(--bg-color);
+    z-index: 500;
+    padding-bottom: 20px;
+    box-sizing: content-box;
+}
+.sidebar .logo i{
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+}
+.sidebar .side-menu{
+    width: 100%;
+    margin-top: 48px;
+}
+.sidebar .side-menu li{
+    height: 48px;
+    margin-left: 6px;
+    background: transparent;
+    border-radius: 48px 0 0 48px;
+    padding: 4px;
+}
+.sidebar .side-menu li.active{
+   position: relative;
+   background: var(--grey); 
+}
+.sidebar .side-menu li.active::before{
+    content: "";
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    right: 0;
+    top: -40px;
+    z-index: -1;
+    box-shadow: 20px 20px 0 var(--grey);
+}
+.sidebar .side-menu li.active::after{
+    content: "";
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    right: 0;
+    bottom: -40px;
+    z-index: -1;
+    box-shadow: 20px 20px 0 var(--grey);
+}
+.sidebar .side-menu li a{
+    height: 100%;
+    width: 100%;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    font-size: 16px;
+    color: var(--dark);
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+.sidebar.hide .side-menu li a{
+    width: calc(48px - (4px * 2));
+    transition: 0.3s ease;
+}
+.sidebar .side-menu li.active a{
+    color: var(--main-color);
+}
+.sidebar .side-menu.top li a:hover{
+    color: var(--main-color);
+}
+.sidebar .side-menu li a.logout{
+    color: var(--red);
+}
+.sidebar .side-menu li a i{
+    min-width: calc(60px - ((4px + 6px) * 2));
+    display: flex;
+    justify-content: center;
+}
+.content{
+    position: relative;
+    width: calc(100% - 280px);
+    left: 280px;
+    transition: 0.3s ease;
+}
+.sidebar.hide ~ .content{
+    width: calc(100% - 60px);
+    left: 60px;
+}
+.content nav{
+    height: 56px;
+    background: var(--bg-color);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-family: var(--poppins);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.content nav::before{
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    left: 0;
+    bottom: -40px;
+    box-shadow: -20px -20px 0 var(--bg-color);
+}
+.content nav a{
+    color: var(--dark);
+}
+.content nav .bx{
+    cursor: pointer;
+    color: var(--dark);
+}
+.content nav .nav-link{
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+.content nav .nav-link:hover{
+    color: var(--main-color);
+}
+.content nav form{
+    max-width: 400px;
+    width: 400px;
+    margin-right: auto;
+} 
+.content nav form .form-input{
+    display: flex;
+    align-items: center;
+    height: 36px;
+}
+.content nav form .form-input input{
+    flex-grow: 1;
+    padding: 0 16px;
+    height: 100%;
+    border: none;
+    background: var(--grey);
+    border-radius: 36px 0 0 36px;
+    outline: none;
+    width: 100%;
+    color: var(--dark);
+}
+.content nav form .form-input button{
+    width: 36px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--main-color);
+    color: var(--bg-color);
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 0 36px 36px 0;
+    cursor: pointer;
+}
+.content nav .switch-mode{
+    display: block;
+    min-width: 50px;
+    height: 25px;
+    border-radius: 25px;
+    background: var(--grey);
+    cursor: pointer;
+    position: relative;
+}
+.content nav .switch-mode::before{
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    width: calc(25px - 4px);
+    background: var(--main-color);
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+.content nav #switch-mode:checked + .switch-mode::before{
+    left: calc(100% - (25px - 4px) - 2px);
+}
+.content nav .notification{
+    font-size: 20px;
+    position: relative;
+}
+.content nav .notification .num{
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-color);
+    background: var(--red);
+    color: var(--bg-color);
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content nav .profile img{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.content .wrapper{
+    max-width: 405px;
+    margin: 135px auto;
+    background: #fff;
+    border-radius: 7px;
+    padding: 28px 0;
+}
+.content .task-input{
+    height: 52px;
+    padding: 0 25px;
+    position: relative;
+}
+.content .task-input i{
+    position: absolute;
+    top: 50%;
+    transform: translate(17px, -50%);
+}
+.content .task-input input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    padding: 0 20px 0 53px;
+}
+.content .task-input input::placeholder{
+    color: #bfbfbf;
+}
+.content .controls, li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.content .controls{
+    padding: 18px 25px;
+    border-bottom: 1px solid #ccc;
+}
+.content .filters span{
+    cursor: pointer;
+    margin: 0 8px;
+    font-size: 17px;
+}
+.content .filters span:first-child{
+    margin-left: 0;
+}
+.content .filters span.active{
+    color: var(--main-color);
+}
+.content .controls .clear-btn{
+    outline: none;
+    border: none;
+    color: var(--bg-color);
+    cursor: pointer;
+    font-size: 13px;
+    border-radius: 4px;
+    padding: 7px 13px;
+    background: var(--main-color);
+}
+.content .task-box{
+    margin: 20px 25px;
+}
+.content .task-box .task{
+    list-style: none;
+    font-size: 17px;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ccc;
+}
+.content .task-box .task:last-child{
+    margin-bottom: 0;
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+.content .task label{
+    display: flex;
+}
+.task label p.checked{
+    text-decoration: line-through;
+}
+.content .task label input{
+    margin-top: 6px;
+    margin-right: 12px;
+}
+.content .task .settings{
+    cursor: pointer;
+    position: relative;
+}
+.settings .task-menu{
+    position: absolute;
+    padding: 5px 0;
+    right: -5px;
+    bottom: -65px;
+    z-index: 2;
+    transform: scale(0);
+    border-radius: 5px;
+    background: #fff;
+    transform-origin: top right;
+    transition: transform 0.2s ease;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+}
+.settings .task-menu.show{
+    transform: scale(1);
+} 
+.content .task-menu li{
+    height: 25px;
+    font-size: 16px;
+    padding: 17px 15px;
+    margin-bottom: 2px;
+    justify-content: flex-start;
+}
+.content .task-menu li:last-child{
+    margin-bottom: 0;
+}
+.content .task-menu li:hover{
+    background: #f5f5f5;
+}
+.content .task-menu li i{
+    padding-right: 8px;
+}
